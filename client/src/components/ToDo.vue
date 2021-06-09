@@ -24,7 +24,7 @@
         :key="todo._id"
         class="blue--text text--darken-2 font-weight-bold"
       >
-        <v-row align="center">
+        <v-row align="center" justify="center">
           <v-checkbox color="success" />
           {{ todo.title }}
           <v-icon color="red" @click="deleteTodo(todo._id)" class="ml-5"
