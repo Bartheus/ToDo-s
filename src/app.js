@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const morgan = require("morgan");
 const path = require("path");
-const serverStatic = require("server-static");
+const serveStatic = require("serve-static");
 
 const app = express(); // create your express app
 
@@ -28,7 +28,7 @@ mongoClient.connect((err, db) => {
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(serverStatic(__dirname + "/client/dist"));
+app.use(serveStatic(__dirname + "/client/dist"));
 
 app.post("/addTodo", (req, res) => {
   const collection = client.db("todosapp").collection("todos");
