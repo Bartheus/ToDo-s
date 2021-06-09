@@ -70,12 +70,7 @@ app.get("/todo", (req, res) => {
   });
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(serveStatic(__dirname + "/dist"));
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname + "dist", "index.html"));
-  });
-}
+app.use(serveStatic(__dirname + "/dist"));
 
 const port = process.env.PORT || 8081;
 app.use("/", router);
