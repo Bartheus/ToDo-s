@@ -71,10 +71,6 @@ app.get("/todo", (req, res) => {
 });
 
 app.use(serveStatic(__dirname + "/dist"));
-app.get("*", function (req, res) {
-  const index = path.join(__dirname, "dist", "index.html");
-  res.sendFile(index);
-});
 
 const port = process.env.PORT || 8081;
 app.use("/", router);
