@@ -28,7 +28,7 @@ mongoClient.connect((err, db) => {
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cors());
-app.use(serveStatic(__dirname + "/dist"));
+app.use(serveStatic(__dirname + "/dist/"));
 
 app.post("/addTodo", (req, res) => {
   const collection = client.db("todosapp").collection("todos");
