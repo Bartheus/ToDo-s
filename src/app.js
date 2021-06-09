@@ -7,7 +7,6 @@ const path = require("path");
 const serveStatic = require("serve-static");
 
 const app = express(); // create your express app
-const router = express.Router();
 
 const mongo = require("mongodb");
 const MongoClient = mongo.MongoClient;
@@ -73,7 +72,7 @@ app.get("/todo", (req, res) => {
 app.use(serveStatic(__dirname + "/dist"));
 
 const port = process.env.PORT || 8081;
-app.use("/", router);
+
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 }); // client is already running on 8080
